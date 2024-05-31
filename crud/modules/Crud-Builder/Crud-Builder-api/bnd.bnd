@@ -1,0 +1,10 @@
+Bundle-Name: Crud-Builder-api
+Bundle-SymbolicName: com.demo.crud.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.demo.crud.exception,\
+	com.demo.crud.model,\
+	com.demo.crud.service,\
+	com.demo.crud.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../Crud-Builder-service/service.xml

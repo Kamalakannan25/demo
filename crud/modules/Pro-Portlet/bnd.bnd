@@ -1,0 +1,4 @@
+Bundle-Name: Pro-Portlet
+Bundle-SymbolicName: com.demo.pro
+Bundle-Version: 1.0.0
+Export-Package: com.demo.pro.constants

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.demo.crud.model.Sports">
+		<field name="uuid" type="String" />
+		<field name="sportsId" type="long" />
+		<field name="sportsName" type="String" />
+		<field name="description" type="String" />
+	</model>
+</model-hints>
