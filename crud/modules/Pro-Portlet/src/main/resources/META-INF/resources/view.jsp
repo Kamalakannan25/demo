@@ -8,6 +8,8 @@
 <%
 String spoName = SportsLocalServiceUtil.findBySportsName("football").get(0).getSportsName();
 System.out.println("Sports Name : "+ spoName);
+System.out.println("Sports Name1 : "+ spoName);
+
 %>
 
 <%=spoName%>
