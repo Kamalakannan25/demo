@@ -35,5 +35,9 @@ public class SportsLocalServiceImpl extends SportsLocalServiceBaseImpl {
 	public List<Sports> findBySportsName(String sportsName) {
 		return sportsPersistence.findBysportsName(sportsName);
 	}
+	
+	public List<Sports> getSportsTabByName(String sportsName){
+		return sportsFinder.getSportsTabByName(sportsName);
+	}
 
 }

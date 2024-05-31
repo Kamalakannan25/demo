@@ -8,6 +8,7 @@ package com.demo.crud.service.base;
 import com.demo.crud.model.Sports;
 import com.demo.crud.service.SportsLocalService;
 import com.demo.crud.service.SportsLocalServiceUtil;
+import com.demo.crud.service.persistence.SportsFinder;
 import com.demo.crud.service.persistence.SportsPersistence;
 
 import com.liferay.petra.sql.dsl.query.DSLQuery;
@@ -433,6 +434,9 @@ public abstract class SportsLocalServiceBaseImpl
 
 	@Reference
 	protected SportsPersistence sportsPersistence;
+
+	@Reference
+	protected SportsFinder sportsFinder;
 
 	@Reference
 	protected com.liferay.counter.kernel.service.CounterLocalService

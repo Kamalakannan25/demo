@@ -8,6 +8,7 @@ package com.demo.crud.service.base;
 import com.demo.crud.model.Sports;
 import com.demo.crud.service.SportsService;
 import com.demo.crud.service.SportsServiceUtil;
+import com.demo.crud.service.persistence.SportsFinder;
 import com.demo.crud.service.persistence.SportsPersistence;
 
 import com.liferay.portal.aop.AopService;
@@ -115,6 +116,9 @@ public abstract class SportsServiceBaseImpl
 
 	@Reference
 	protected SportsPersistence sportsPersistence;
+
+	@Reference
+	protected SportsFinder sportsFinder;
 
 	@Reference
 	protected com.liferay.counter.kernel.service.CounterLocalService

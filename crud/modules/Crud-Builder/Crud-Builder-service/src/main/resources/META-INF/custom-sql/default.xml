@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<custom-sql>
+   <sql id="getSportsByName"> 
+      <![CDATA[ 
+         SELECT * FROM demo.sports_sports p where p.sportsName = ?
+]]>
+   </sql>
+</custom-sql>

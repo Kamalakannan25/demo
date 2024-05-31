@@ -37,16 +37,17 @@ public class ProPortlet extends MVCPortlet {
 	
 	@Reference
 	private SportsLocalService sportsLocalService;
-	
-	@Override
-		public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
-				throws IOException, PortletException {
-		System.out.println(">>>>>>>>>>> Do View  <<<<<<<<<");
-    	String spoName = sportsLocalService.findBySportsName("football").get(0).getSportsName();
-    	System.out.println("Sports name  :  "+ spoName);
-    			
 
-		
-			super.doView(renderRequest, renderResponse);
-		}
+	@Override
+	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
+			throws IOException, PortletException {
+		System.out.println(">>>>>>>>>>> Do View  <<<<<<<<<");
+		String spoName = sportsLocalService.findBySportsName("football").get(0).getSportsName();
+		System.out.println("Sports name  :  " + spoName);
+
+		String sportNames = sportsLocalService.getSportsTabByName("football").get(0).getDescription();
+		System.out.println("Custom SQL Query  :  " + sportNames);
+
+		super.doView(renderRequest, renderResponse);
+	}
 }

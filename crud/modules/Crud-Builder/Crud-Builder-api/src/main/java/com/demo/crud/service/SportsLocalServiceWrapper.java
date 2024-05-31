@@ -301,6 +301,13 @@ public class SportsLocalServiceWrapper
 		return _sportsLocalService.getSportsesCount();
 	}
 
+	@Override
+	public java.util.List<com.demo.crud.model.Sports> getSportsTabByName(
+		String sportsName) {
+
+		return _sportsLocalService.getSportsTabByName(sportsName);
+	}
+
 	/**
 	 * Updates the sports in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	 *

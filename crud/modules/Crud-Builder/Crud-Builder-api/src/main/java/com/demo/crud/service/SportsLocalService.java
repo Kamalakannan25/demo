@@ -246,6 +246,9 @@ public interface SportsLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getSportsesCount();
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Sports> getSportsTabByName(String sportsName);
+
 	/**
 	 * Updates the sports in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	 *

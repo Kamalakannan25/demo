@@ -269,6 +269,10 @@ public class SportsLocalServiceUtil {
 		return getService().getSportsesCount();
 	}
 
+	public static List<Sports> getSportsTabByName(String sportsName) {
+		return getService().getSportsTabByName(sportsName);
+	}
+
 	/**
 	 * Updates the sports in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	 *
