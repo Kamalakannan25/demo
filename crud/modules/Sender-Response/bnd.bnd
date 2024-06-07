@@ -1,0 +1,4 @@
+Bundle-Name: Sender-Response
+Bundle-SymbolicName: com.send.response
+Bundle-Version: 1.0.0
+Export-Package: com.send.response.constants

@@ -2,8 +2,9 @@ package com.demo.pro.portlet;
 
 import com.demo.crud.service.SportsLocalService;
 import com.demo.pro.constants.ProPortletKeys;
-
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 
 import java.io.IOException;
 
@@ -47,6 +48,10 @@ public class ProPortlet extends MVCPortlet {
 
 		String sportNames = sportsLocalService.getSportsTabByName("football").get(0).getDescription();
 		System.out.println("Custom SQL Query  :  " + sportNames);
+		
+		
+		System.out.println("User Local Count  :  "+ UserLocalServiceUtil.getUsersCount());
+			System.out.println("User Id By Email Address  :  ");
 
 		super.doView(renderRequest, renderResponse);
 	}
