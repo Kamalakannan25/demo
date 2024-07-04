@@ -8,6 +8,7 @@ package com.demo.crud.service.base;
 import com.demo.crud.model.Sports;
 import com.demo.crud.service.SportsLocalService;
 import com.demo.crud.service.SportsLocalServiceUtil;
+import com.demo.crud.service.persistence.GamesPersistence;
 import com.demo.crud.service.persistence.SportsFinder;
 import com.demo.crud.service.persistence.SportsPersistence;
 
@@ -429,6 +430,9 @@ public abstract class SportsLocalServiceBaseImpl
 			throw new SystemException(exception);
 		}
 	}
+
+	@Reference
+	protected GamesPersistence gamesPersistence;
 
 	protected SportsLocalService sportsLocalService;
 

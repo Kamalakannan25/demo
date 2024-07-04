@@ -17,4 +17,27 @@
 		<finder-column name="sportsName"></finder-column>
 		</finder>
 	</entity>
+	
+	<entity local-service="true" name="Games" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="gamesId" primary="true" type="long" />
+		
+		<column name="gamessName" type="String" />
+		<column name="gamesAge" type="int" />
+		<column name="Description" type="String" />
+		
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+	</entity>
 </service-builder>

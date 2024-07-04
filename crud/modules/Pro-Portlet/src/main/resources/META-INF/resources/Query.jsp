@@ -39,7 +39,7 @@ for(Sports sports : sportsList1){
 <h4>.............................................</h4>
 <h4>Criteria Object using Restriction Factory util AND Operator</h4>
 
-<%
+<%-- <%
 DynamicQuery sportsQuery2 = DynamicQueryFactoryUtil.forClass(Sports.class, PortalClassLoaderUtil.getClassLoader());
 
 Criterion criterion = null;
@@ -53,7 +53,7 @@ List<Sports> sportsList2 = SportsLocalServiceUtil.dynamicQuery(sportsQuery2);
 for(Sports sports : sportsList2){
 	out.println(sports.getSportsId() + "<br/>");
 }
-%>
+%> --%>
 
 <h4>.............................................</h4>
 <h4>Criteria Object using Restriction Factory util OR Operator</h4>
