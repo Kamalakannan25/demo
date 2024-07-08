@@ -5,7 +5,7 @@
 
 package com.demo.crud.model.impl;
 
-import com.demo.crud.model.Games;
+import com.demo.crud.model.Players;
 
 import com.liferay.petra.lang.HashUtil;
 import com.liferay.petra.string.StringBundler;
@@ -17,12 +17,12 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
 /**
- * The cache model class for representing Games in entity cache.
+ * The cache model class for representing Players in entity cache.
  *
  * @author Brian Wing Shun Chan
  * @generated
  */
-public class GamesCacheModel implements CacheModel<Games>, Externalizable {
+public class PlayersCacheModel implements CacheModel<Players>, Externalizable {
 
 	@Override
 	public boolean equals(Object object) {
@@ -30,13 +30,13 @@ public class GamesCacheModel implements CacheModel<Games>, Externalizable {
 			return true;
 		}
 
-		if (!(object instanceof GamesCacheModel)) {
+		if (!(object instanceof PlayersCacheModel)) {
 			return false;
 		}
 
-		GamesCacheModel gamesCacheModel = (GamesCacheModel)object;
+		PlayersCacheModel playersCacheModel = (PlayersCacheModel)object;
 
-		if (gamesId == gamesCacheModel.gamesId) {
+		if (playersId == playersCacheModel.playersId) {
 			return true;
 		}
 
@@ -45,82 +45,77 @@ public class GamesCacheModel implements CacheModel<Games>, Externalizable {
 
 	@Override
 	public int hashCode() {
-		return HashUtil.hash(0, gamesId);
+		return HashUtil.hash(0, playersId);
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
-		sb.append(", gamesId=");
-		sb.append(gamesId);
-		sb.append(", gameRules=");
-		sb.append(gameRules);
-		sb.append(", gameMembers=");
-		sb.append(gameMembers);
+		sb.append(", playersId=");
+		sb.append(playersId);
+		sb.append(", playersName=");
+		sb.append(playersName);
+		sb.append(", playersAge=");
+		sb.append(playersAge);
 		sb.append(", Description=");
 		sb.append(Description);
 		sb.append(", sportsId=");
 		sb.append(sportsId);
-		sb.append(", playersId=");
-		sb.append(playersId);
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	@Override
-	public Games toEntityModel() {
-		GamesImpl gamesImpl = new GamesImpl();
+	public Players toEntityModel() {
+		PlayersImpl playersImpl = new PlayersImpl();
 
 		if (uuid == null) {
-			gamesImpl.setUuid("");
+			playersImpl.setUuid("");
 		}
 		else {
-			gamesImpl.setUuid(uuid);
+			playersImpl.setUuid(uuid);
 		}
 
-		gamesImpl.setGamesId(gamesId);
+		playersImpl.setPlayersId(playersId);
 
-		if (gameRules == null) {
-			gamesImpl.setGameRules("");
+		if (playersName == null) {
+			playersImpl.setPlayersName("");
 		}
 		else {
-			gamesImpl.setGameRules(gameRules);
+			playersImpl.setPlayersName(playersName);
 		}
 
-		gamesImpl.setGameMembers(gameMembers);
+		playersImpl.setPlayersAge(playersAge);
 
 		if (Description == null) {
-			gamesImpl.setDescription("");
+			playersImpl.setDescription("");
 		}
 		else {
-			gamesImpl.setDescription(Description);
+			playersImpl.setDescription(Description);
 		}
 
-		gamesImpl.setSportsId(sportsId);
-		gamesImpl.setPlayersId(playersId);
+		playersImpl.setSportsId(sportsId);
 
-		gamesImpl.resetOriginalValues();
+		playersImpl.resetOriginalValues();
 
-		return gamesImpl;
+		return playersImpl;
 	}
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		uuid = objectInput.readUTF();
 
-		gamesId = objectInput.readLong();
-		gameRules = objectInput.readUTF();
+		playersId = objectInput.readLong();
+		playersName = objectInput.readUTF();
 
-		gameMembers = objectInput.readInt();
+		playersAge = objectInput.readInt();
 		Description = objectInput.readUTF();
 
 		sportsId = objectInput.readLong();
-
-		playersId = objectInput.readLong();
 	}
 
 	@Override
@@ -132,16 +127,16 @@ public class GamesCacheModel implements CacheModel<Games>, Externalizable {
 			objectOutput.writeUTF(uuid);
 		}
 
-		objectOutput.writeLong(gamesId);
+		objectOutput.writeLong(playersId);
 
-		if (gameRules == null) {
+		if (playersName == null) {
 			objectOutput.writeUTF("");
 		}
 		else {
-			objectOutput.writeUTF(gameRules);
+			objectOutput.writeUTF(playersName);
 		}
 
-		objectOutput.writeInt(gameMembers);
+		objectOutput.writeInt(playersAge);
 
 		if (Description == null) {
 			objectOutput.writeUTF("");
@@ -151,16 +146,13 @@ public class GamesCacheModel implements CacheModel<Games>, Externalizable {
 		}
 
 		objectOutput.writeLong(sportsId);
-
-		objectOutput.writeLong(playersId);
 	}
 
 	public String uuid;
-	public long gamesId;
-	public String gameRules;
-	public int gameMembers;
+	public long playersId;
+	public String playersName;
+	public int playersAge;
 	public String Description;
 	public long sportsId;
-	public long playersId;
 
 }

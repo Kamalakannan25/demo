@@ -9,14 +9,11 @@ import com.demo.crud.model.Games;
 import com.demo.crud.service.GamesLocalService;
 import com.demo.crud.service.GamesLocalServiceUtil;
 import com.demo.crud.service.persistence.GamesPersistence;
+import com.demo.crud.service.persistence.PlayersFinder;
+import com.demo.crud.service.persistence.PlayersPersistence;
 import com.demo.crud.service.persistence.SportsFinder;
 import com.demo.crud.service.persistence.SportsPersistence;
 
-import com.liferay.exportimport.kernel.lar.ExportImportHelperUtil;
-import com.liferay.exportimport.kernel.lar.ManifestSummary;
-import com.liferay.exportimport.kernel.lar.PortletDataContext;
-import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
-import com.liferay.exportimport.kernel.lar.StagedModelType;
 import com.liferay.petra.sql.dsl.query.DSLQuery;
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.dao.db.DB;
@@ -27,7 +24,6 @@ import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DefaultActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -241,18 +237,6 @@ public abstract class GamesLocalServiceBaseImpl
 	}
 
 	/**
-	 * Returns the games matching the UUID and group.
-	 *
-	 * @param uuid the games's UUID
-	 * @param groupId the primary key of the group
-	 * @return the matching games, or <code>null</code> if a matching games could not be found
-	 */
-	@Override
-	public Games fetchGamesByUuidAndGroupId(String uuid, long groupId) {
-		return gamesPersistence.fetchByUUID_G(uuid, groupId);
-	}
-
-	/**
 	 * Returns the games with the primary key.
 	 *
 	 * @param gamesId the primary key of the games
@@ -304,70 +288,6 @@ public abstract class GamesLocalServiceBaseImpl
 		actionableDynamicQuery.setPrimaryKeyPropertyName("gamesId");
 	}
 
-	@Override
-	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
-		final PortletDataContext portletDataContext) {
-
-		final ExportActionableDynamicQuery exportActionableDynamicQuery =
-			new ExportActionableDynamicQuery() {
-
-				@Override
-				public long performCount() throws PortalException {
-					ManifestSummary manifestSummary =
-						portletDataContext.getManifestSummary();
-
-					StagedModelType stagedModelType = getStagedModelType();
-
-					long modelAdditionCount = super.performCount();
-
-					manifestSummary.addModelAdditionCount(
-						stagedModelType, modelAdditionCount);
-
-					long modelDeletionCount =
-						ExportImportHelperUtil.getModelDeletionCount(
-							portletDataContext, stagedModelType);
-
-					manifestSummary.addModelDeletionCount(
-						stagedModelType, modelDeletionCount);
-
-					return modelAdditionCount;
-				}
-
-			};
-
-		initActionableDynamicQuery(exportActionableDynamicQuery);
-
-		exportActionableDynamicQuery.setAddCriteriaMethod(
-			new ActionableDynamicQuery.AddCriteriaMethod() {
-
-				@Override
-				public void addCriteria(DynamicQuery dynamicQuery) {
-					portletDataContext.addDateRangeCriteria(
-						dynamicQuery, "modifiedDate");
-				}
-
-			});
-
-		exportActionableDynamicQuery.setCompanyId(
-			portletDataContext.getCompanyId());
-
-		exportActionableDynamicQuery.setPerformActionMethod(
-			new ActionableDynamicQuery.PerformActionMethod<Games>() {
-
-				@Override
-				public void performAction(Games games) throws PortalException {
-					StagedModelDataHandlerUtil.exportStagedModel(
-						portletDataContext, games);
-				}
-
-			});
-		exportActionableDynamicQuery.setStagedModelType(
-			new StagedModelType(
-				PortalUtil.getClassNameId(Games.class.getName())));
-
-		return exportActionableDynamicQuery;
-	}
-
 	/**
 	 * @throws PortalException
 	 */
@@ -406,54 +326,6 @@ public abstract class GamesLocalServiceBaseImpl
 		throws PortalException {
 
 		return gamesPersistence.findByPrimaryKey(primaryKeyObj);
-	}
-
-	/**
-	 * Returns all the gameses matching the UUID and company.
-	 *
-	 * @param uuid the UUID of the gameses
-	 * @param companyId the primary key of the company
-	 * @return the matching gameses, or an empty list if no matches were found
-	 */
-	@Override
-	public List<Games> getGamesesByUuidAndCompanyId(
-		String uuid, long companyId) {
-
-		return gamesPersistence.findByUuid_C(uuid, companyId);
-	}
-
-	/**
-	 * Returns a range of gameses matching the UUID and company.
-	 *
-	 * @param uuid the UUID of the gameses
-	 * @param companyId the primary key of the company
-	 * @param start the lower bound of the range of gameses
-	 * @param end the upper bound of the range of gameses (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the range of matching gameses, or an empty list if no matches were found
-	 */
-	@Override
-	public List<Games> getGamesesByUuidAndCompanyId(
-		String uuid, long companyId, int start, int end,
-		OrderByComparator<Games> orderByComparator) {
-
-		return gamesPersistence.findByUuid_C(
-			uuid, companyId, start, end, orderByComparator);
-	}
-
-	/**
-	 * Returns the games matching the UUID and group.
-	 *
-	 * @param uuid the games's UUID
-	 * @param groupId the primary key of the group
-	 * @return the matching games
-	 * @throws PortalException if a matching games could not be found
-	 */
-	@Override
-	public Games getGamesByUuidAndGroupId(String uuid, long groupId)
-		throws PortalException {
-
-		return gamesPersistence.findByUUID_G(uuid, groupId);
 	}
 
 	/**
@@ -564,6 +436,12 @@ public abstract class GamesLocalServiceBaseImpl
 
 	@Reference
 	protected GamesPersistence gamesPersistence;
+
+	@Reference
+	protected PlayersPersistence playersPersistence;
+
+	@Reference
+	protected PlayersFinder playersFinder;
 
 	@Reference
 	protected SportsPersistence sportsPersistence;

@@ -9,7 +9,6 @@
 		<!-- PK fields -->
 
 		<column name="sportsId" primary="true" type="long" />
-		
 		<column name="sportsName" type="String" />
 		<column name="description" type="String" />
 		
@@ -18,26 +17,28 @@
 		</finder>
 	</entity>
 	
+	<entity local-service="true" name="Players" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="playersId" primary="true" type="long" />
+		
+		<column name="playersName" type="String" />
+		<column name="playersAge" type="int" />
+		<column name="Description" type="String" />
+		<column name="sportsId" type="long" />
+	</entity>
+	
 	<entity local-service="true" name="Games" remote-service="true" uuid="true">
 
 		<!-- PK fields -->
 
 		<column name="gamesId" primary="true" type="long" />
 		
-		<column name="gamessName" type="String" />
-		<column name="gamesAge" type="int" />
+		<column name="gameRules" type="String" />
+		<column name="gameMembers" type="int" />
 		<column name="Description" type="String" />
-		
-		<!-- Group instance -->
-
-		<column name="groupId" type="long" />
-		<column name="companyId" type="long" />
-
-		<!-- Audit fields -->
-
-		<column name="userId" type="long" />
-		<column name="userName" type="String" />
-		<column name="createDate" type="Date" />
-		<column name="modifiedDate" type="Date" />
+		<column name="sportsId" type="long" />
+		<column name="playersId" type="long" />
 	</entity>
 </service-builder>

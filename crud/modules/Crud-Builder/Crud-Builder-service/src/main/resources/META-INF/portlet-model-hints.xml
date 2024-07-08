@@ -4,15 +4,19 @@
 	<model name="com.demo.crud.model.Games">
 		<field name="uuid" type="String" />
 		<field name="gamesId" type="long" />
-		<field name="gamessName" type="String" />
-		<field name="gamesAge" type="int" />
+		<field name="gameRules" type="String" />
+		<field name="gameMembers" type="int" />
 		<field name="Description" type="String" />
-		<field name="groupId" type="long" />
-		<field name="companyId" type="long" />
-		<field name="userId" type="long" />
-		<field name="userName" type="String" />
-		<field name="createDate" type="Date" />
-		<field name="modifiedDate" type="Date" />
+		<field name="sportsId" type="long" />
+		<field name="playersId" type="long" />
+	</model>
+	<model name="com.demo.crud.model.Players">
+		<field name="uuid" type="String" />
+		<field name="playersId" type="long" />
+		<field name="playersName" type="String" />
+		<field name="playersAge" type="int" />
+		<field name="Description" type="String" />
+		<field name="sportsId" type="long" />
 	</model>
 	<model name="com.demo.crud.model.Sports">
 		<field name="uuid" type="String" />

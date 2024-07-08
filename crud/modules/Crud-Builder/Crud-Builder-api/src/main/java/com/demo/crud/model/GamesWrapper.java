@@ -5,11 +5,9 @@
 
 package com.demo.crud.model;
 
-import com.liferay.exportimport.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.model.ModelWrapper;
 import com.liferay.portal.kernel.model.wrapper.BaseModelWrapper;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,15 +33,11 @@ public class GamesWrapper
 
 		attributes.put("uuid", getUuid());
 		attributes.put("gamesId", getGamesId());
-		attributes.put("gamessName", getGamessName());
-		attributes.put("gamesAge", getGamesAge());
+		attributes.put("gameRules", getGameRules());
+		attributes.put("gameMembers", getGameMembers());
 		attributes.put("Description", getDescription());
-		attributes.put("groupId", getGroupId());
-		attributes.put("companyId", getCompanyId());
-		attributes.put("userId", getUserId());
-		attributes.put("userName", getUserName());
-		attributes.put("createDate", getCreateDate());
-		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("sportsId", getSportsId());
+		attributes.put("playersId", getPlayersId());
 
 		return attributes;
 	}
@@ -62,16 +56,16 @@ public class GamesWrapper
 			setGamesId(gamesId);
 		}
 
-		String gamessName = (String)attributes.get("gamessName");
+		String gameRules = (String)attributes.get("gameRules");
 
-		if (gamessName != null) {
-			setGamessName(gamessName);
+		if (gameRules != null) {
+			setGameRules(gameRules);
 		}
 
-		Integer gamesAge = (Integer)attributes.get("gamesAge");
+		Integer gameMembers = (Integer)attributes.get("gameMembers");
 
-		if (gamesAge != null) {
-			setGamesAge(gamesAge);
+		if (gameMembers != null) {
+			setGameMembers(gameMembers);
 		}
 
 		String Description = (String)attributes.get("Description");
@@ -80,66 +74,22 @@ public class GamesWrapper
 			setDescription(Description);
 		}
 
-		Long groupId = (Long)attributes.get("groupId");
+		Long sportsId = (Long)attributes.get("sportsId");
 
-		if (groupId != null) {
-			setGroupId(groupId);
+		if (sportsId != null) {
+			setSportsId(sportsId);
 		}
 
-		Long companyId = (Long)attributes.get("companyId");
+		Long playersId = (Long)attributes.get("playersId");
 
-		if (companyId != null) {
-			setCompanyId(companyId);
-		}
-
-		Long userId = (Long)attributes.get("userId");
-
-		if (userId != null) {
-			setUserId(userId);
-		}
-
-		String userName = (String)attributes.get("userName");
-
-		if (userName != null) {
-			setUserName(userName);
-		}
-
-		Date createDate = (Date)attributes.get("createDate");
-
-		if (createDate != null) {
-			setCreateDate(createDate);
-		}
-
-		Date modifiedDate = (Date)attributes.get("modifiedDate");
-
-		if (modifiedDate != null) {
-			setModifiedDate(modifiedDate);
+		if (playersId != null) {
+			setPlayersId(playersId);
 		}
 	}
 
 	@Override
 	public Games cloneWithOriginalValues() {
 		return wrap(model.cloneWithOriginalValues());
-	}
-
-	/**
-	 * Returns the company ID of this games.
-	 *
-	 * @return the company ID of this games
-	 */
-	@Override
-	public long getCompanyId() {
-		return model.getCompanyId();
-	}
-
-	/**
-	 * Returns the create date of this games.
-	 *
-	 * @return the create date of this games
-	 */
-	@Override
-	public Date getCreateDate() {
-		return model.getCreateDate();
 	}
 
 	/**
@@ -153,13 +103,23 @@ public class GamesWrapper
 	}
 
 	/**
-	 * Returns the games age of this games.
+	 * Returns the game members of this games.
 	 *
-	 * @return the games age of this games
+	 * @return the game members of this games
 	 */
 	@Override
-	public int getGamesAge() {
-		return model.getGamesAge();
+	public int getGameMembers() {
+		return model.getGameMembers();
+	}
+
+	/**
+	 * Returns the game rules of this games.
+	 *
+	 * @return the game rules of this games
+	 */
+	@Override
+	public String getGameRules() {
+		return model.getGameRules();
 	}
 
 	/**
@@ -173,33 +133,13 @@ public class GamesWrapper
 	}
 
 	/**
-	 * Returns the gamess name of this games.
+	 * Returns the players ID of this games.
 	 *
-	 * @return the gamess name of this games
+	 * @return the players ID of this games
 	 */
 	@Override
-	public String getGamessName() {
-		return model.getGamessName();
-	}
-
-	/**
-	 * Returns the group ID of this games.
-	 *
-	 * @return the group ID of this games
-	 */
-	@Override
-	public long getGroupId() {
-		return model.getGroupId();
-	}
-
-	/**
-	 * Returns the modified date of this games.
-	 *
-	 * @return the modified date of this games
-	 */
-	@Override
-	public Date getModifiedDate() {
-		return model.getModifiedDate();
+	public long getPlayersId() {
+		return model.getPlayersId();
 	}
 
 	/**
@@ -213,33 +153,13 @@ public class GamesWrapper
 	}
 
 	/**
-	 * Returns the user ID of this games.
+	 * Returns the sports ID of this games.
 	 *
-	 * @return the user ID of this games
+	 * @return the sports ID of this games
 	 */
 	@Override
-	public long getUserId() {
-		return model.getUserId();
-	}
-
-	/**
-	 * Returns the user name of this games.
-	 *
-	 * @return the user name of this games
-	 */
-	@Override
-	public String getUserName() {
-		return model.getUserName();
-	}
-
-	/**
-	 * Returns the user uuid of this games.
-	 *
-	 * @return the user uuid of this games
-	 */
-	@Override
-	public String getUserUuid() {
-		return model.getUserUuid();
+	public long getSportsId() {
+		return model.getSportsId();
 	}
 
 	/**
@@ -258,26 +178,6 @@ public class GamesWrapper
 	}
 
 	/**
-	 * Sets the company ID of this games.
-	 *
-	 * @param companyId the company ID of this games
-	 */
-	@Override
-	public void setCompanyId(long companyId) {
-		model.setCompanyId(companyId);
-	}
-
-	/**
-	 * Sets the create date of this games.
-	 *
-	 * @param createDate the create date of this games
-	 */
-	@Override
-	public void setCreateDate(Date createDate) {
-		model.setCreateDate(createDate);
-	}
-
-	/**
 	 * Sets the description of this games.
 	 *
 	 * @param Description the description of this games
@@ -288,13 +188,23 @@ public class GamesWrapper
 	}
 
 	/**
-	 * Sets the games age of this games.
+	 * Sets the game members of this games.
 	 *
-	 * @param gamesAge the games age of this games
+	 * @param gameMembers the game members of this games
 	 */
 	@Override
-	public void setGamesAge(int gamesAge) {
-		model.setGamesAge(gamesAge);
+	public void setGameMembers(int gameMembers) {
+		model.setGameMembers(gameMembers);
+	}
+
+	/**
+	 * Sets the game rules of this games.
+	 *
+	 * @param gameRules the game rules of this games
+	 */
+	@Override
+	public void setGameRules(String gameRules) {
+		model.setGameRules(gameRules);
 	}
 
 	/**
@@ -308,33 +218,13 @@ public class GamesWrapper
 	}
 
 	/**
-	 * Sets the gamess name of this games.
+	 * Sets the players ID of this games.
 	 *
-	 * @param gamessName the gamess name of this games
+	 * @param playersId the players ID of this games
 	 */
 	@Override
-	public void setGamessName(String gamessName) {
-		model.setGamessName(gamessName);
-	}
-
-	/**
-	 * Sets the group ID of this games.
-	 *
-	 * @param groupId the group ID of this games
-	 */
-	@Override
-	public void setGroupId(long groupId) {
-		model.setGroupId(groupId);
-	}
-
-	/**
-	 * Sets the modified date of this games.
-	 *
-	 * @param modifiedDate the modified date of this games
-	 */
-	@Override
-	public void setModifiedDate(Date modifiedDate) {
-		model.setModifiedDate(modifiedDate);
+	public void setPlayersId(long playersId) {
+		model.setPlayersId(playersId);
 	}
 
 	/**
@@ -348,33 +238,13 @@ public class GamesWrapper
 	}
 
 	/**
-	 * Sets the user ID of this games.
+	 * Sets the sports ID of this games.
 	 *
-	 * @param userId the user ID of this games
+	 * @param sportsId the sports ID of this games
 	 */
 	@Override
-	public void setUserId(long userId) {
-		model.setUserId(userId);
-	}
-
-	/**
-	 * Sets the user name of this games.
-	 *
-	 * @param userName the user name of this games
-	 */
-	@Override
-	public void setUserName(String userName) {
-		model.setUserName(userName);
-	}
-
-	/**
-	 * Sets the user uuid of this games.
-	 *
-	 * @param userUuid the user uuid of this games
-	 */
-	@Override
-	public void setUserUuid(String userUuid) {
-		model.setUserUuid(userUuid);
+	public void setSportsId(long sportsId) {
+		model.setSportsId(sportsId);
 	}
 
 	/**
@@ -390,11 +260,6 @@ public class GamesWrapper
 	@Override
 	public String toXmlString() {
 		return model.toXmlString();
-	}
-
-	@Override
-	public StagedModelType getStagedModelType() {
-		return model.getStagedModelType();
 	}
 
 	@Override

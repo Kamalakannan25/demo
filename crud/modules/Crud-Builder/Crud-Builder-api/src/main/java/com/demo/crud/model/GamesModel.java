@@ -7,11 +7,6 @@ package com.demo.crud.model;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.model.BaseModel;
-import com.liferay.portal.kernel.model.GroupedModel;
-import com.liferay.portal.kernel.model.ShardedModel;
-import com.liferay.portal.kernel.model.StagedAuditedModel;
-
-import java.util.Date;
 
 import org.osgi.annotation.versioning.ProviderType;
 
@@ -27,8 +22,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-public interface GamesModel
-	extends BaseModel<Games>, GroupedModel, ShardedModel, StagedAuditedModel {
+public interface GamesModel extends BaseModel<Games> {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
@@ -56,7 +50,6 @@ public interface GamesModel
 	 * @return the uuid of this games
 	 */
 	@AutoEscape
-	@Override
 	public String getUuid();
 
 	/**
@@ -64,7 +57,6 @@ public interface GamesModel
 	 *
 	 * @param uuid the uuid of this games
 	 */
-	@Override
 	public void setUuid(String uuid);
 
 	/**
@@ -82,33 +74,33 @@ public interface GamesModel
 	public void setGamesId(long gamesId);
 
 	/**
-	 * Returns the gamess name of this games.
+	 * Returns the game rules of this games.
 	 *
-	 * @return the gamess name of this games
+	 * @return the game rules of this games
 	 */
 	@AutoEscape
-	public String getGamessName();
+	public String getGameRules();
 
 	/**
-	 * Sets the gamess name of this games.
+	 * Sets the game rules of this games.
 	 *
-	 * @param gamessName the gamess name of this games
+	 * @param gameRules the game rules of this games
 	 */
-	public void setGamessName(String gamessName);
+	public void setGameRules(String gameRules);
 
 	/**
-	 * Returns the games age of this games.
+	 * Returns the game members of this games.
 	 *
-	 * @return the games age of this games
+	 * @return the game members of this games
 	 */
-	public int getGamesAge();
+	public int getGameMembers();
 
 	/**
-	 * Sets the games age of this games.
+	 * Sets the game members of this games.
 	 *
-	 * @param gamesAge the games age of this games
+	 * @param gameMembers the game members of this games
 	 */
-	public void setGamesAge(int gamesAge);
+	public void setGameMembers(int gameMembers);
 
 	/**
 	 * Returns the description of this games.
@@ -126,117 +118,32 @@ public interface GamesModel
 	public void setDescription(String Description);
 
 	/**
-	 * Returns the group ID of this games.
+	 * Returns the sports ID of this games.
 	 *
-	 * @return the group ID of this games
+	 * @return the sports ID of this games
 	 */
-	@Override
-	public long getGroupId();
+	public long getSportsId();
 
 	/**
-	 * Sets the group ID of this games.
+	 * Sets the sports ID of this games.
 	 *
-	 * @param groupId the group ID of this games
+	 * @param sportsId the sports ID of this games
 	 */
-	@Override
-	public void setGroupId(long groupId);
+	public void setSportsId(long sportsId);
 
 	/**
-	 * Returns the company ID of this games.
+	 * Returns the players ID of this games.
 	 *
-	 * @return the company ID of this games
+	 * @return the players ID of this games
 	 */
-	@Override
-	public long getCompanyId();
+	public long getPlayersId();
 
 	/**
-	 * Sets the company ID of this games.
+	 * Sets the players ID of this games.
 	 *
-	 * @param companyId the company ID of this games
+	 * @param playersId the players ID of this games
 	 */
-	@Override
-	public void setCompanyId(long companyId);
-
-	/**
-	 * Returns the user ID of this games.
-	 *
-	 * @return the user ID of this games
-	 */
-	@Override
-	public long getUserId();
-
-	/**
-	 * Sets the user ID of this games.
-	 *
-	 * @param userId the user ID of this games
-	 */
-	@Override
-	public void setUserId(long userId);
-
-	/**
-	 * Returns the user uuid of this games.
-	 *
-	 * @return the user uuid of this games
-	 */
-	@Override
-	public String getUserUuid();
-
-	/**
-	 * Sets the user uuid of this games.
-	 *
-	 * @param userUuid the user uuid of this games
-	 */
-	@Override
-	public void setUserUuid(String userUuid);
-
-	/**
-	 * Returns the user name of this games.
-	 *
-	 * @return the user name of this games
-	 */
-	@AutoEscape
-	@Override
-	public String getUserName();
-
-	/**
-	 * Sets the user name of this games.
-	 *
-	 * @param userName the user name of this games
-	 */
-	@Override
-	public void setUserName(String userName);
-
-	/**
-	 * Returns the create date of this games.
-	 *
-	 * @return the create date of this games
-	 */
-	@Override
-	public Date getCreateDate();
-
-	/**
-	 * Sets the create date of this games.
-	 *
-	 * @param createDate the create date of this games
-	 */
-	@Override
-	public void setCreateDate(Date createDate);
-
-	/**
-	 * Returns the modified date of this games.
-	 *
-	 * @return the modified date of this games
-	 */
-	@Override
-	public Date getModifiedDate();
-
-	/**
-	 * Sets the modified date of this games.
-	 *
-	 * @param modifiedDate the modified date of this games
-	 */
-	@Override
-	public void setModifiedDate(Date modifiedDate);
+	public void setPlayersId(long playersId);
 
 	@Override
 	public Games cloneWithOriginalValues();

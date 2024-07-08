@@ -9,6 +9,8 @@ import com.demo.crud.model.Games;
 import com.demo.crud.service.GamesService;
 import com.demo.crud.service.GamesServiceUtil;
 import com.demo.crud.service.persistence.GamesPersistence;
+import com.demo.crud.service.persistence.PlayersFinder;
+import com.demo.crud.service.persistence.PlayersPersistence;
 import com.demo.crud.service.persistence.SportsFinder;
 import com.demo.crud.service.persistence.SportsPersistence;
 
@@ -117,6 +119,12 @@ public abstract class GamesServiceBaseImpl
 
 	@Reference
 	protected GamesPersistence gamesPersistence;
+
+	@Reference
+	protected PlayersPersistence playersPersistence;
+
+	@Reference
+	protected PlayersFinder playersFinder;
 
 	@Reference
 	protected SportsPersistence sportsPersistence;

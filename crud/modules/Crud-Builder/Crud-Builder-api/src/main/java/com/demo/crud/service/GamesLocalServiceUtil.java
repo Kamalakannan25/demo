@@ -199,29 +199,10 @@ public class GamesLocalServiceUtil {
 		return getService().fetchGames(gamesId);
 	}
 
-	/**
-	 * Returns the games matching the UUID and group.
-	 *
-	 * @param uuid the games's UUID
-	 * @param groupId the primary key of the group
-	 * @return the matching games, or <code>null</code> if a matching games could not be found
-	 */
-	public static Games fetchGamesByUuidAndGroupId(String uuid, long groupId) {
-		return getService().fetchGamesByUuidAndGroupId(uuid, groupId);
-	}
-
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery
 		getActionableDynamicQuery() {
 
 		return getService().getActionableDynamicQuery();
-	}
-
-	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
-		getExportActionableDynamicQuery(
-			com.liferay.exportimport.kernel.lar.PortletDataContext
-				portletDataContext) {
-
-		return getService().getExportActionableDynamicQuery(portletDataContext);
 	}
 
 	/**
@@ -233,20 +214,6 @@ public class GamesLocalServiceUtil {
 	 */
 	public static Games getGames(long gamesId) throws PortalException {
 		return getService().getGames(gamesId);
-	}
-
-	/**
-	 * Returns the games matching the UUID and group.
-	 *
-	 * @param uuid the games's UUID
-	 * @param groupId the primary key of the group
-	 * @return the matching games
-	 * @throws PortalException if a matching games could not be found
-	 */
-	public static Games getGamesByUuidAndGroupId(String uuid, long groupId)
-		throws PortalException {
-
-		return getService().getGamesByUuidAndGroupId(uuid, groupId);
 	}
 
 	/**
@@ -262,37 +229,6 @@ public class GamesLocalServiceUtil {
 	 */
 	public static List<Games> getGameses(int start, int end) {
 		return getService().getGameses(start, end);
-	}
-
-	/**
-	 * Returns all the gameses matching the UUID and company.
-	 *
-	 * @param uuid the UUID of the gameses
-	 * @param companyId the primary key of the company
-	 * @return the matching gameses, or an empty list if no matches were found
-	 */
-	public static List<Games> getGamesesByUuidAndCompanyId(
-		String uuid, long companyId) {
-
-		return getService().getGamesesByUuidAndCompanyId(uuid, companyId);
-	}
-
-	/**
-	 * Returns a range of gameses matching the UUID and company.
-	 *
-	 * @param uuid the UUID of the gameses
-	 * @param companyId the primary key of the company
-	 * @param start the lower bound of the range of gameses
-	 * @param end the upper bound of the range of gameses (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the range of matching gameses, or an empty list if no matches were found
-	 */
-	public static List<Games> getGamesesByUuidAndCompanyId(
-		String uuid, long companyId, int start, int end,
-		OrderByComparator<Games> orderByComparator) {
-
-		return getService().getGamesesByUuidAndCompanyId(
-			uuid, companyId, start, end, orderByComparator);
 	}
 
 	/**

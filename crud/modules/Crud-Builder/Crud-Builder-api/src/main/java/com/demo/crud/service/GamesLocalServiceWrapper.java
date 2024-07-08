@@ -215,35 +215,11 @@ public class GamesLocalServiceWrapper
 		return _gamesLocalService.fetchGames(gamesId);
 	}
 
-	/**
-	 * Returns the games matching the UUID and group.
-	 *
-	 * @param uuid the games's UUID
-	 * @param groupId the primary key of the group
-	 * @return the matching games, or <code>null</code> if a matching games could not be found
-	 */
-	@Override
-	public com.demo.crud.model.Games fetchGamesByUuidAndGroupId(
-		String uuid, long groupId) {
-
-		return _gamesLocalService.fetchGamesByUuidAndGroupId(uuid, groupId);
-	}
-
 	@Override
 	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery
 		getActionableDynamicQuery() {
 
 		return _gamesLocalService.getActionableDynamicQuery();
-	}
-
-	@Override
-	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
-		getExportActionableDynamicQuery(
-			com.liferay.exportimport.kernel.lar.PortletDataContext
-				portletDataContext) {
-
-		return _gamesLocalService.getExportActionableDynamicQuery(
-			portletDataContext);
 	}
 
 	/**
@@ -258,22 +234,6 @@ public class GamesLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _gamesLocalService.getGames(gamesId);
-	}
-
-	/**
-	 * Returns the games matching the UUID and group.
-	 *
-	 * @param uuid the games's UUID
-	 * @param groupId the primary key of the group
-	 * @return the matching games
-	 * @throws PortalException if a matching games could not be found
-	 */
-	@Override
-	public com.demo.crud.model.Games getGamesByUuidAndGroupId(
-			String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.PortalException {
-
-		return _gamesLocalService.getGamesByUuidAndGroupId(uuid, groupId);
 	}
 
 	/**
@@ -292,41 +252,6 @@ public class GamesLocalServiceWrapper
 		int start, int end) {
 
 		return _gamesLocalService.getGameses(start, end);
-	}
-
-	/**
-	 * Returns all the gameses matching the UUID and company.
-	 *
-	 * @param uuid the UUID of the gameses
-	 * @param companyId the primary key of the company
-	 * @return the matching gameses, or an empty list if no matches were found
-	 */
-	@Override
-	public java.util.List<com.demo.crud.model.Games>
-		getGamesesByUuidAndCompanyId(String uuid, long companyId) {
-
-		return _gamesLocalService.getGamesesByUuidAndCompanyId(uuid, companyId);
-	}
-
-	/**
-	 * Returns a range of gameses matching the UUID and company.
-	 *
-	 * @param uuid the UUID of the gameses
-	 * @param companyId the primary key of the company
-	 * @param start the lower bound of the range of gameses
-	 * @param end the upper bound of the range of gameses (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the range of matching gameses, or an empty list if no matches were found
-	 */
-	@Override
-	public java.util.List<com.demo.crud.model.Games>
-		getGamesesByUuidAndCompanyId(
-			String uuid, long companyId, int start, int end,
-			com.liferay.portal.kernel.util.OrderByComparator
-				<com.demo.crud.model.Games> orderByComparator) {
-
-		return _gamesLocalService.getGamesesByUuidAndCompanyId(
-			uuid, companyId, start, end, orderByComparator);
 	}
 
 	/**

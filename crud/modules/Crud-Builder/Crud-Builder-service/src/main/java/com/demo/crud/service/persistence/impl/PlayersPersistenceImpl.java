@@ -5,13 +5,13 @@
 
 package com.demo.crud.service.persistence.impl;
 
-import com.demo.crud.exception.NoSuchGamesException;
-import com.demo.crud.model.Games;
-import com.demo.crud.model.GamesTable;
-import com.demo.crud.model.impl.GamesImpl;
-import com.demo.crud.model.impl.GamesModelImpl;
-import com.demo.crud.service.persistence.GamesPersistence;
-import com.demo.crud.service.persistence.GamesUtil;
+import com.demo.crud.exception.NoSuchPlayersException;
+import com.demo.crud.model.Players;
+import com.demo.crud.model.PlayersTable;
+import com.demo.crud.model.impl.PlayersImpl;
+import com.demo.crud.model.impl.PlayersModelImpl;
+import com.demo.crud.service.persistence.PlayersPersistence;
+import com.demo.crud.service.persistence.PlayersUtil;
 import com.demo.crud.service.persistence.impl.constants.SportsPersistenceConstants;
 
 import com.liferay.petra.string.StringBundler;
@@ -54,7 +54,7 @@ import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 
 /**
- * The persistence implementation for the games service.
+ * The persistence implementation for the players service.
  *
  * <p>
  * Caching information and settings can be found in <code>portal.properties</code>
@@ -63,17 +63,17 @@ import org.osgi.service.component.annotations.Reference;
  * @author Brian Wing Shun Chan
  * @generated
  */
-@Component(service = GamesPersistence.class)
-public class GamesPersistenceImpl
-	extends BasePersistenceImpl<Games> implements GamesPersistence {
+@Component(service = PlayersPersistence.class)
+public class PlayersPersistenceImpl
+	extends BasePersistenceImpl<Players> implements PlayersPersistence {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this class directly. Always use <code>GamesUtil</code> to access the games persistence. Modify <code>service.xml</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify or reference this class directly. Always use <code>PlayersUtil</code> to access the players persistence. Modify <code>service.xml</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static final String FINDER_CLASS_NAME_ENTITY =
-		GamesImpl.class.getName();
+		PlayersImpl.class.getName();
 
 	public static final String FINDER_CLASS_NAME_LIST_WITH_PAGINATION =
 		FINDER_CLASS_NAME_ENTITY + ".List1";
@@ -89,72 +89,72 @@ public class GamesPersistenceImpl
 	private FinderPath _finderPathCountByUuid;
 
 	/**
-	 * Returns all the gameses where uuid = &#63;.
+	 * Returns all the playerses where uuid = &#63;.
 	 *
 	 * @param uuid the uuid
-	 * @return the matching gameses
+	 * @return the matching playerses
 	 */
 	@Override
-	public List<Games> findByUuid(String uuid) {
+	public List<Players> findByUuid(String uuid) {
 		return findByUuid(uuid, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 	}
 
 	/**
-	 * Returns a range of all the gameses where uuid = &#63;.
+	 * Returns a range of all the playerses where uuid = &#63;.
 	 *
 	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>GamesModelImpl</code>.
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>PlayersModelImpl</code>.
 	 * </p>
 	 *
 	 * @param uuid the uuid
-	 * @param start the lower bound of the range of gameses
-	 * @param end the upper bound of the range of gameses (not inclusive)
-	 * @return the range of matching gameses
+	 * @param start the lower bound of the range of playerses
+	 * @param end the upper bound of the range of playerses (not inclusive)
+	 * @return the range of matching playerses
 	 */
 	@Override
-	public List<Games> findByUuid(String uuid, int start, int end) {
+	public List<Players> findByUuid(String uuid, int start, int end) {
 		return findByUuid(uuid, start, end, null);
 	}
 
 	/**
-	 * Returns an ordered range of all the gameses where uuid = &#63;.
+	 * Returns an ordered range of all the playerses where uuid = &#63;.
 	 *
 	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>GamesModelImpl</code>.
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>PlayersModelImpl</code>.
 	 * </p>
 	 *
 	 * @param uuid the uuid
-	 * @param start the lower bound of the range of gameses
-	 * @param end the upper bound of the range of gameses (not inclusive)
+	 * @param start the lower bound of the range of playerses
+	 * @param end the upper bound of the range of playerses (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the ordered range of matching gameses
+	 * @return the ordered range of matching playerses
 	 */
 	@Override
-	public List<Games> findByUuid(
+	public List<Players> findByUuid(
 		String uuid, int start, int end,
-		OrderByComparator<Games> orderByComparator) {
+		OrderByComparator<Players> orderByComparator) {
 
 		return findByUuid(uuid, start, end, orderByComparator, true);
 	}
 
 	/**
-	 * Returns an ordered range of all the gameses where uuid = &#63;.
+	 * Returns an ordered range of all the playerses where uuid = &#63;.
 	 *
 	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>GamesModelImpl</code>.
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>PlayersModelImpl</code>.
 	 * </p>
 	 *
 	 * @param uuid the uuid
-	 * @param start the lower bound of the range of gameses
-	 * @param end the upper bound of the range of gameses (not inclusive)
+	 * @param start the lower bound of the range of playerses
+	 * @param end the upper bound of the range of playerses (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @param useFinderCache whether to use the finder cache
-	 * @return the ordered range of matching gameses
+	 * @return the ordered range of matching playerses
 	 */
 	@Override
-	public List<Games> findByUuid(
+	public List<Players> findByUuid(
 		String uuid, int start, int end,
-		OrderByComparator<Games> orderByComparator, boolean useFinderCache) {
+		OrderByComparator<Players> orderByComparator, boolean useFinderCache) {
 
 		uuid = Objects.toString(uuid, "");
 
@@ -174,15 +174,15 @@ public class GamesPersistenceImpl
 			finderArgs = new Object[] {uuid, start, end, orderByComparator};
 		}
 
-		List<Games> list = null;
+		List<Players> list = null;
 
 		if (useFinderCache) {
-			list = (List<Games>)finderCache.getResult(
+			list = (List<Players>)finderCache.getResult(
 				finderPath, finderArgs, this);
 
 			if ((list != null) && !list.isEmpty()) {
-				for (Games games : list) {
-					if (!uuid.equals(games.getUuid())) {
+				for (Players players : list) {
+					if (!uuid.equals(players.getUuid())) {
 						list = null;
 
 						break;
@@ -202,7 +202,7 @@ public class GamesPersistenceImpl
 				sb = new StringBundler(3);
 			}
 
-			sb.append(_SQL_SELECT_GAMES_WHERE);
+			sb.append(_SQL_SELECT_PLAYERS_WHERE);
 
 			boolean bindUuid = false;
 
@@ -220,7 +220,7 @@ public class GamesPersistenceImpl
 					sb, _ORDER_BY_ENTITY_ALIAS, orderByComparator);
 			}
 			else {
-				sb.append(GamesModelImpl.ORDER_BY_JPQL);
+				sb.append(PlayersModelImpl.ORDER_BY_JPQL);
 			}
 
 			String sql = sb.toString();
@@ -238,7 +238,7 @@ public class GamesPersistenceImpl
 					queryPos.add(uuid);
 				}
 
-				list = (List<Games>)QueryUtil.list(
+				list = (List<Players>)QueryUtil.list(
 					query, getDialect(), start, end);
 
 				cacheResult(list);
@@ -259,22 +259,22 @@ public class GamesPersistenceImpl
 	}
 
 	/**
-	 * Returns the first games in the ordered set where uuid = &#63;.
+	 * Returns the first players in the ordered set where uuid = &#63;.
 	 *
 	 * @param uuid the uuid
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the first matching games
-	 * @throws NoSuchGamesException if a matching games could not be found
+	 * @return the first matching players
+	 * @throws NoSuchPlayersException if a matching players could not be found
 	 */
 	@Override
-	public Games findByUuid_First(
-			String uuid, OrderByComparator<Games> orderByComparator)
-		throws NoSuchGamesException {
+	public Players findByUuid_First(
+			String uuid, OrderByComparator<Players> orderByComparator)
+		throws NoSuchPlayersException {
 
-		Games games = fetchByUuid_First(uuid, orderByComparator);
+		Players players = fetchByUuid_First(uuid, orderByComparator);
 
-		if (games != null) {
-			return games;
+		if (players != null) {
+			return players;
 		}
 
 		StringBundler sb = new StringBundler(4);
@@ -286,21 +286,21 @@ public class GamesPersistenceImpl
 
 		sb.append("}");
 
-		throw new NoSuchGamesException(sb.toString());
+		throw new NoSuchPlayersException(sb.toString());
 	}
 
 	/**
-	 * Returns the first games in the ordered set where uuid = &#63;.
+	 * Returns the first players in the ordered set where uuid = &#63;.
 	 *
 	 * @param uuid the uuid
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the first matching games, or <code>null</code> if a matching games could not be found
+	 * @return the first matching players, or <code>null</code> if a matching players could not be found
 	 */
 	@Override
-	public Games fetchByUuid_First(
-		String uuid, OrderByComparator<Games> orderByComparator) {
+	public Players fetchByUuid_First(
+		String uuid, OrderByComparator<Players> orderByComparator) {
 
-		List<Games> list = findByUuid(uuid, 0, 1, orderByComparator);
+		List<Players> list = findByUuid(uuid, 0, 1, orderByComparator);
 
 		if (!list.isEmpty()) {
 			return list.get(0);
@@ -310,22 +310,22 @@ public class GamesPersistenceImpl
 	}
 
 	/**
-	 * Returns the last games in the ordered set where uuid = &#63;.
+	 * Returns the last players in the ordered set where uuid = &#63;.
 	 *
 	 * @param uuid the uuid
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the last matching games
-	 * @throws NoSuchGamesException if a matching games could not be found
+	 * @return the last matching players
+	 * @throws NoSuchPlayersException if a matching players could not be found
 	 */
 	@Override
-	public Games findByUuid_Last(
-			String uuid, OrderByComparator<Games> orderByComparator)
-		throws NoSuchGamesException {
+	public Players findByUuid_Last(
+			String uuid, OrderByComparator<Players> orderByComparator)
+		throws NoSuchPlayersException {
 
-		Games games = fetchByUuid_Last(uuid, orderByComparator);
+		Players players = fetchByUuid_Last(uuid, orderByComparator);
 
-		if (games != null) {
-			return games;
+		if (players != null) {
+			return players;
 		}
 
 		StringBundler sb = new StringBundler(4);
@@ -337,19 +337,19 @@ public class GamesPersistenceImpl
 
 		sb.append("}");
 
-		throw new NoSuchGamesException(sb.toString());
+		throw new NoSuchPlayersException(sb.toString());
 	}
 
 	/**
-	 * Returns the last games in the ordered set where uuid = &#63;.
+	 * Returns the last players in the ordered set where uuid = &#63;.
 	 *
 	 * @param uuid the uuid
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the last matching games, or <code>null</code> if a matching games could not be found
+	 * @return the last matching players, or <code>null</code> if a matching players could not be found
 	 */
 	@Override
-	public Games fetchByUuid_Last(
-		String uuid, OrderByComparator<Games> orderByComparator) {
+	public Players fetchByUuid_Last(
+		String uuid, OrderByComparator<Players> orderByComparator) {
 
 		int count = countByUuid(uuid);
 
@@ -357,7 +357,7 @@ public class GamesPersistenceImpl
 			return null;
 		}
 
-		List<Games> list = findByUuid(
+		List<Players> list = findByUuid(
 			uuid, count - 1, count, orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -368,38 +368,38 @@ public class GamesPersistenceImpl
 	}
 
 	/**
-	 * Returns the gameses before and after the current games in the ordered set where uuid = &#63;.
+	 * Returns the playerses before and after the current players in the ordered set where uuid = &#63;.
 	 *
-	 * @param gamesId the primary key of the current games
+	 * @param playersId the primary key of the current players
 	 * @param uuid the uuid
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the previous, current, and next games
-	 * @throws NoSuchGamesException if a games with the primary key could not be found
+	 * @return the previous, current, and next players
+	 * @throws NoSuchPlayersException if a players with the primary key could not be found
 	 */
 	@Override
-	public Games[] findByUuid_PrevAndNext(
-			long gamesId, String uuid,
-			OrderByComparator<Games> orderByComparator)
-		throws NoSuchGamesException {
+	public Players[] findByUuid_PrevAndNext(
+			long playersId, String uuid,
+			OrderByComparator<Players> orderByComparator)
+		throws NoSuchPlayersException {
 
 		uuid = Objects.toString(uuid, "");
 
-		Games games = findByPrimaryKey(gamesId);
+		Players players = findByPrimaryKey(playersId);
 
 		Session session = null;
 
 		try {
 			session = openSession();
 
-			Games[] array = new GamesImpl[3];
+			Players[] array = new PlayersImpl[3];
 
 			array[0] = getByUuid_PrevAndNext(
-				session, games, uuid, orderByComparator, true);
+				session, players, uuid, orderByComparator, true);
 
-			array[1] = games;
+			array[1] = players;
 
 			array[2] = getByUuid_PrevAndNext(
-				session, games, uuid, orderByComparator, false);
+				session, players, uuid, orderByComparator, false);
 
 			return array;
 		}
@@ -411,9 +411,9 @@ public class GamesPersistenceImpl
 		}
 	}
 
-	protected Games getByUuid_PrevAndNext(
-		Session session, Games games, String uuid,
-		OrderByComparator<Games> orderByComparator, boolean previous) {
+	protected Players getByUuid_PrevAndNext(
+		Session session, Players players, String uuid,
+		OrderByComparator<Players> orderByComparator, boolean previous) {
 
 		StringBundler sb = null;
 
@@ -426,7 +426,7 @@ public class GamesPersistenceImpl
 			sb = new StringBundler(3);
 		}
 
-		sb.append(_SQL_SELECT_GAMES_WHERE);
+		sb.append(_SQL_SELECT_PLAYERS_WHERE);
 
 		boolean bindUuid = false;
 
@@ -496,7 +496,7 @@ public class GamesPersistenceImpl
 			}
 		}
 		else {
-			sb.append(GamesModelImpl.ORDER_BY_JPQL);
+			sb.append(PlayersModelImpl.ORDER_BY_JPQL);
 		}
 
 		String sql = sb.toString();
@@ -514,13 +514,13 @@ public class GamesPersistenceImpl
 
 		if (orderByComparator != null) {
 			for (Object orderByConditionValue :
-					orderByComparator.getOrderByConditionValues(games)) {
+					orderByComparator.getOrderByConditionValues(players)) {
 
 				queryPos.add(orderByConditionValue);
 			}
 		}
 
-		List<Games> list = query.list();
+		List<Players> list = query.list();
 
 		if (list.size() == 2) {
 			return list.get(1);
@@ -531,24 +531,24 @@ public class GamesPersistenceImpl
 	}
 
 	/**
-	 * Removes all the gameses where uuid = &#63; from the database.
+	 * Removes all the playerses where uuid = &#63; from the database.
 	 *
 	 * @param uuid the uuid
 	 */
 	@Override
 	public void removeByUuid(String uuid) {
-		for (Games games :
+		for (Players players :
 				findByUuid(uuid, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
 
-			remove(games);
+			remove(players);
 		}
 	}
 
 	/**
-	 * Returns the number of gameses where uuid = &#63;.
+	 * Returns the number of playerses where uuid = &#63;.
 	 *
 	 * @param uuid the uuid
-	 * @return the number of matching gameses
+	 * @return the number of matching playerses
 	 */
 	@Override
 	public int countByUuid(String uuid) {
@@ -563,7 +563,7 @@ public class GamesPersistenceImpl
 		if (count == null) {
 			StringBundler sb = new StringBundler(2);
 
-			sb.append(_SQL_COUNT_GAMES_WHERE);
+			sb.append(_SQL_COUNT_PLAYERS_WHERE);
 
 			boolean bindUuid = false;
 
@@ -606,63 +606,64 @@ public class GamesPersistenceImpl
 		return count.intValue();
 	}
 
-	private static final String _FINDER_COLUMN_UUID_UUID_2 = "games.uuid = ?";
+	private static final String _FINDER_COLUMN_UUID_UUID_2 = "players.uuid = ?";
 
 	private static final String _FINDER_COLUMN_UUID_UUID_3 =
-		"(games.uuid IS NULL OR games.uuid = '')";
+		"(players.uuid IS NULL OR players.uuid = '')";
 
-	public GamesPersistenceImpl() {
+	public PlayersPersistenceImpl() {
 		Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 		dbColumnNames.put("uuid", "uuid_");
 
 		setDBColumnNames(dbColumnNames);
 
-		setModelClass(Games.class);
+		setModelClass(Players.class);
 
-		setModelImplClass(GamesImpl.class);
+		setModelImplClass(PlayersImpl.class);
 		setModelPKClass(long.class);
 
-		setTable(GamesTable.INSTANCE);
+		setTable(PlayersTable.INSTANCE);
 	}
 
 	/**
-	 * Caches the games in the entity cache if it is enabled.
+	 * Caches the players in the entity cache if it is enabled.
 	 *
-	 * @param games the games
+	 * @param players the players
 	 */
 	@Override
-	public void cacheResult(Games games) {
-		entityCache.putResult(GamesImpl.class, games.getPrimaryKey(), games);
+	public void cacheResult(Players players) {
+		entityCache.putResult(
+			PlayersImpl.class, players.getPrimaryKey(), players);
 	}
 
 	private int _valueObjectFinderCacheListThreshold;
 
 	/**
-	 * Caches the gameses in the entity cache if it is enabled.
+	 * Caches the playerses in the entity cache if it is enabled.
 	 *
-	 * @param gameses the gameses
+	 * @param playerses the playerses
 	 */
 	@Override
-	public void cacheResult(List<Games> gameses) {
+	public void cacheResult(List<Players> playerses) {
 		if ((_valueObjectFinderCacheListThreshold == 0) ||
 			((_valueObjectFinderCacheListThreshold > 0) &&
-			 (gameses.size() > _valueObjectFinderCacheListThreshold))) {
+			 (playerses.size() > _valueObjectFinderCacheListThreshold))) {
 
 			return;
 		}
 
-		for (Games games : gameses) {
-			if (entityCache.getResult(GamesImpl.class, games.getPrimaryKey()) ==
-					null) {
+		for (Players players : playerses) {
+			if (entityCache.getResult(
+					PlayersImpl.class, players.getPrimaryKey()) == null) {
 
-				cacheResult(games);
+				cacheResult(players);
 			}
 		}
 	}
 
 	/**
-	 * Clears the cache for all gameses.
+	 * Clears the cache for all playerses.
 	 *
 	 * <p>
 	 * The <code>EntityCache</code> and <code>FinderCache</code> are both cleared by this method.
@@ -670,99 +671,102 @@ public class GamesPersistenceImpl
 	 */
 	@Override
 	public void clearCache() {
-		entityCache.clearCache(GamesImpl.class);
+		entityCache.clearCache(PlayersImpl.class);
 
-		finderCache.clearCache(GamesImpl.class);
+		finderCache.clearCache(PlayersImpl.class);
 	}
 
 	/**
-	 * Clears the cache for the games.
+	 * Clears the cache for the players.
 	 *
 	 * <p>
 	 * The <code>EntityCache</code> and <code>FinderCache</code> are both cleared by this method.
 	 * </p>
 	 */
 	@Override
-	public void clearCache(Games games) {
-		entityCache.removeResult(GamesImpl.class, games);
+	public void clearCache(Players players) {
+		entityCache.removeResult(PlayersImpl.class, players);
 	}
 
 	@Override
-	public void clearCache(List<Games> gameses) {
-		for (Games games : gameses) {
-			entityCache.removeResult(GamesImpl.class, games);
+	public void clearCache(List<Players> playerses) {
+		for (Players players : playerses) {
+			entityCache.removeResult(PlayersImpl.class, players);
 		}
 	}
 
 	@Override
 	public void clearCache(Set<Serializable> primaryKeys) {
-		finderCache.clearCache(GamesImpl.class);
+		finderCache.clearCache(PlayersImpl.class);
 
 		for (Serializable primaryKey : primaryKeys) {
-			entityCache.removeResult(GamesImpl.class, primaryKey);
+			entityCache.removeResult(PlayersImpl.class, primaryKey);
 		}
 	}
 
 	/**
-	 * Creates a new games with the primary key. Does not add the games to the database.
+	 * Creates a new players with the primary key. Does not add the players to the database.
 	 *
-	 * @param gamesId the primary key for the new games
-	 * @return the new games
+	 * @param playersId the primary key for the new players
+	 * @return the new players
 	 */
 	@Override
-	public Games create(long gamesId) {
-		Games games = new GamesImpl();
+	public Players create(long playersId) {
+		Players players = new PlayersImpl();
 
-		games.setNew(true);
-		games.setPrimaryKey(gamesId);
+		players.setNew(true);
+		players.setPrimaryKey(playersId);
 
 		String uuid = PortalUUIDUtil.generate();
 
-		games.setUuid(uuid);
+		players.setUuid(uuid);
 
-		return games;
+		return players;
 	}
 
 	/**
-	 * Removes the games with the primary key from the database. Also notifies the appropriate model listeners.
+	 * Removes the players with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param gamesId the primary key of the games
-	 * @return the games that was removed
-	 * @throws NoSuchGamesException if a games with the primary key could not be found
+	 * @param playersId the primary key of the players
+	 * @return the players that was removed
+	 * @throws NoSuchPlayersException if a players with the primary key could not be found
 	 */
 	@Override
-	public Games remove(long gamesId) throws NoSuchGamesException {
-		return remove((Serializable)gamesId);
+	public Players remove(long playersId) throws NoSuchPlayersException {
+		return remove((Serializable)playersId);
 	}
 
 	/**
-	 * Removes the games with the primary key from the database. Also notifies the appropriate model listeners.
+	 * Removes the players with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param primaryKey the primary key of the games
-	 * @return the games that was removed
-	 * @throws NoSuchGamesException if a games with the primary key could not be found
+	 * @param primaryKey the primary key of the players
+	 * @return the players that was removed
+	 * @throws NoSuchPlayersException if a players with the primary key could not be found
 	 */
 	@Override
-	public Games remove(Serializable primaryKey) throws NoSuchGamesException {
+	public Players remove(Serializable primaryKey)
+		throws NoSuchPlayersException {
+
 		Session session = null;
 
 		try {
 			session = openSession();
 
-			Games games = (Games)session.get(GamesImpl.class, primaryKey);
+			Players players = (Players)session.get(
+				PlayersImpl.class, primaryKey);
 
-			if (games == null) {
+			if (players == null) {
 				if (_log.isDebugEnabled()) {
 					_log.debug(_NO_SUCH_ENTITY_WITH_PRIMARY_KEY + primaryKey);
 				}
 
-				throw new NoSuchGamesException(
+				throw new NoSuchPlayersException(
 					_NO_SUCH_ENTITY_WITH_PRIMARY_KEY + primaryKey);
 			}
 
-			return remove(games);
+			return remove(players);
 		}
-		catch (NoSuchGamesException noSuchEntityException) {
+		catch (NoSuchPlayersException noSuchEntityException) {
 			throw noSuchEntityException;
 		}
 		catch (Exception exception) {
@@ -774,19 +778,19 @@ public class GamesPersistenceImpl
 	}
 
 	@Override
-	protected Games removeImpl(Games games) {
+	protected Players removeImpl(Players players) {
 		Session session = null;
 
 		try {
 			session = openSession();
 
-			if (!session.contains(games)) {
-				games = (Games)session.get(
-					GamesImpl.class, games.getPrimaryKeyObj());
+			if (!session.contains(players)) {
+				players = (Players)session.get(
+					PlayersImpl.class, players.getPrimaryKeyObj());
 			}
 
-			if (games != null) {
-				session.delete(games);
+			if (players != null) {
+				session.delete(players);
 			}
 		}
 		catch (Exception exception) {
@@ -796,39 +800,39 @@ public class GamesPersistenceImpl
 			closeSession(session);
 		}
 
-		if (games != null) {
-			clearCache(games);
+		if (players != null) {
+			clearCache(players);
 		}
 
-		return games;
+		return players;
 	}
 
 	@Override
-	public Games updateImpl(Games games) {
-		boolean isNew = games.isNew();
+	public Players updateImpl(Players players) {
+		boolean isNew = players.isNew();
 
-		if (!(games instanceof GamesModelImpl)) {
+		if (!(players instanceof PlayersModelImpl)) {
 			InvocationHandler invocationHandler = null;
 
-			if (ProxyUtil.isProxyClass(games.getClass())) {
-				invocationHandler = ProxyUtil.getInvocationHandler(games);
+			if (ProxyUtil.isProxyClass(players.getClass())) {
+				invocationHandler = ProxyUtil.getInvocationHandler(players);
 
 				throw new IllegalArgumentException(
-					"Implement ModelWrapper in games proxy " +
+					"Implement ModelWrapper in players proxy " +
 						invocationHandler.getClass());
 			}
 
 			throw new IllegalArgumentException(
-				"Implement ModelWrapper in custom Games implementation " +
-					games.getClass());
+				"Implement ModelWrapper in custom Players implementation " +
+					players.getClass());
 		}
 
-		GamesModelImpl gamesModelImpl = (GamesModelImpl)games;
+		PlayersModelImpl playersModelImpl = (PlayersModelImpl)players;
 
-		if (Validator.isNull(games.getUuid())) {
+		if (Validator.isNull(players.getUuid())) {
 			String uuid = PortalUUIDUtil.generate();
 
-			games.setUuid(uuid);
+			players.setUuid(uuid);
 		}
 
 		Session session = null;
@@ -837,10 +841,10 @@ public class GamesPersistenceImpl
 			session = openSession();
 
 			if (isNew) {
-				session.save(games);
+				session.save(players);
 			}
 			else {
-				games = (Games)session.merge(games);
+				players = (Players)session.merge(players);
 			}
 		}
 		catch (Exception exception) {
@@ -850,126 +854,128 @@ public class GamesPersistenceImpl
 			closeSession(session);
 		}
 
-		entityCache.putResult(GamesImpl.class, gamesModelImpl, false, true);
+		entityCache.putResult(PlayersImpl.class, playersModelImpl, false, true);
 
 		if (isNew) {
-			games.setNew(false);
+			players.setNew(false);
 		}
 
-		games.resetOriginalValues();
+		players.resetOriginalValues();
 
-		return games;
+		return players;
 	}
 
 	/**
-	 * Returns the games with the primary key or throws a <code>com.liferay.portal.kernel.exception.NoSuchModelException</code> if it could not be found.
+	 * Returns the players with the primary key or throws a <code>com.liferay.portal.kernel.exception.NoSuchModelException</code> if it could not be found.
 	 *
-	 * @param primaryKey the primary key of the games
-	 * @return the games
-	 * @throws NoSuchGamesException if a games with the primary key could not be found
+	 * @param primaryKey the primary key of the players
+	 * @return the players
+	 * @throws NoSuchPlayersException if a players with the primary key could not be found
 	 */
 	@Override
-	public Games findByPrimaryKey(Serializable primaryKey)
-		throws NoSuchGamesException {
+	public Players findByPrimaryKey(Serializable primaryKey)
+		throws NoSuchPlayersException {
 
-		Games games = fetchByPrimaryKey(primaryKey);
+		Players players = fetchByPrimaryKey(primaryKey);
 
-		if (games == null) {
+		if (players == null) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(_NO_SUCH_ENTITY_WITH_PRIMARY_KEY + primaryKey);
 			}
 
-			throw new NoSuchGamesException(
+			throw new NoSuchPlayersException(
 				_NO_SUCH_ENTITY_WITH_PRIMARY_KEY + primaryKey);
 		}
 
-		return games;
+		return players;
 	}
 
 	/**
-	 * Returns the games with the primary key or throws a <code>NoSuchGamesException</code> if it could not be found.
+	 * Returns the players with the primary key or throws a <code>NoSuchPlayersException</code> if it could not be found.
 	 *
-	 * @param gamesId the primary key of the games
-	 * @return the games
-	 * @throws NoSuchGamesException if a games with the primary key could not be found
+	 * @param playersId the primary key of the players
+	 * @return the players
+	 * @throws NoSuchPlayersException if a players with the primary key could not be found
 	 */
 	@Override
-	public Games findByPrimaryKey(long gamesId) throws NoSuchGamesException {
-		return findByPrimaryKey((Serializable)gamesId);
+	public Players findByPrimaryKey(long playersId)
+		throws NoSuchPlayersException {
+
+		return findByPrimaryKey((Serializable)playersId);
 	}
 
 	/**
-	 * Returns the games with the primary key or returns <code>null</code> if it could not be found.
+	 * Returns the players with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param gamesId the primary key of the games
-	 * @return the games, or <code>null</code> if a games with the primary key could not be found
+	 * @param playersId the primary key of the players
+	 * @return the players, or <code>null</code> if a players with the primary key could not be found
 	 */
 	@Override
-	public Games fetchByPrimaryKey(long gamesId) {
-		return fetchByPrimaryKey((Serializable)gamesId);
+	public Players fetchByPrimaryKey(long playersId) {
+		return fetchByPrimaryKey((Serializable)playersId);
 	}
 
 	/**
-	 * Returns all the gameses.
+	 * Returns all the playerses.
 	 *
-	 * @return the gameses
+	 * @return the playerses
 	 */
 	@Override
-	public List<Games> findAll() {
+	public List<Players> findAll() {
 		return findAll(QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 	}
 
 	/**
-	 * Returns a range of all the gameses.
+	 * Returns a range of all the playerses.
 	 *
 	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>GamesModelImpl</code>.
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>PlayersModelImpl</code>.
 	 * </p>
 	 *
-	 * @param start the lower bound of the range of gameses
-	 * @param end the upper bound of the range of gameses (not inclusive)
-	 * @return the range of gameses
+	 * @param start the lower bound of the range of playerses
+	 * @param end the upper bound of the range of playerses (not inclusive)
+	 * @return the range of playerses
 	 */
 	@Override
-	public List<Games> findAll(int start, int end) {
+	public List<Players> findAll(int start, int end) {
 		return findAll(start, end, null);
 	}
 
 	/**
-	 * Returns an ordered range of all the gameses.
+	 * Returns an ordered range of all the playerses.
 	 *
 	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>GamesModelImpl</code>.
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>PlayersModelImpl</code>.
 	 * </p>
 	 *
-	 * @param start the lower bound of the range of gameses
-	 * @param end the upper bound of the range of gameses (not inclusive)
+	 * @param start the lower bound of the range of playerses
+	 * @param end the upper bound of the range of playerses (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the ordered range of gameses
+	 * @return the ordered range of playerses
 	 */
 	@Override
-	public List<Games> findAll(
-		int start, int end, OrderByComparator<Games> orderByComparator) {
+	public List<Players> findAll(
+		int start, int end, OrderByComparator<Players> orderByComparator) {
 
 		return findAll(start, end, orderByComparator, true);
 	}
 
 	/**
-	 * Returns an ordered range of all the gameses.
+	 * Returns an ordered range of all the playerses.
 	 *
 	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>GamesModelImpl</code>.
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>PlayersModelImpl</code>.
 	 * </p>
 	 *
-	 * @param start the lower bound of the range of gameses
-	 * @param end the upper bound of the range of gameses (not inclusive)
+	 * @param start the lower bound of the range of playerses
+	 * @param end the upper bound of the range of playerses (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @param useFinderCache whether to use the finder cache
-	 * @return the ordered range of gameses
+	 * @return the ordered range of playerses
 	 */
 	@Override
-	public List<Games> findAll(
-		int start, int end, OrderByComparator<Games> orderByComparator,
+	public List<Players> findAll(
+		int start, int end, OrderByComparator<Players> orderByComparator,
 		boolean useFinderCache) {
 
 		FinderPath finderPath = null;
@@ -988,10 +994,10 @@ public class GamesPersistenceImpl
 			finderArgs = new Object[] {start, end, orderByComparator};
 		}
 
-		List<Games> list = null;
+		List<Players> list = null;
 
 		if (useFinderCache) {
-			list = (List<Games>)finderCache.getResult(
+			list = (List<Players>)finderCache.getResult(
 				finderPath, finderArgs, this);
 		}
 
@@ -1003,7 +1009,7 @@ public class GamesPersistenceImpl
 				sb = new StringBundler(
 					2 + (orderByComparator.getOrderByFields().length * 2));
 
-				sb.append(_SQL_SELECT_GAMES);
+				sb.append(_SQL_SELECT_PLAYERS);
 
 				appendOrderByComparator(
 					sb, _ORDER_BY_ENTITY_ALIAS, orderByComparator);
@@ -1011,9 +1017,9 @@ public class GamesPersistenceImpl
 				sql = sb.toString();
 			}
 			else {
-				sql = _SQL_SELECT_GAMES;
+				sql = _SQL_SELECT_PLAYERS;
 
-				sql = sql.concat(GamesModelImpl.ORDER_BY_JPQL);
+				sql = sql.concat(PlayersModelImpl.ORDER_BY_JPQL);
 			}
 
 			Session session = null;
@@ -1023,7 +1029,7 @@ public class GamesPersistenceImpl
 
 				Query query = session.createQuery(sql);
 
-				list = (List<Games>)QueryUtil.list(
+				list = (List<Players>)QueryUtil.list(
 					query, getDialect(), start, end);
 
 				cacheResult(list);
@@ -1044,20 +1050,20 @@ public class GamesPersistenceImpl
 	}
 
 	/**
-	 * Removes all the gameses from the database.
+	 * Removes all the playerses from the database.
 	 *
 	 */
 	@Override
 	public void removeAll() {
-		for (Games games : findAll()) {
-			remove(games);
+		for (Players players : findAll()) {
+			remove(players);
 		}
 	}
 
 	/**
-	 * Returns the number of gameses.
+	 * Returns the number of playerses.
 	 *
-	 * @return the number of gameses
+	 * @return the number of playerses
 	 */
 	@Override
 	public int countAll() {
@@ -1070,7 +1076,7 @@ public class GamesPersistenceImpl
 			try {
 				session = openSession();
 
-				Query query = session.createQuery(_SQL_COUNT_GAMES);
+				Query query = session.createQuery(_SQL_COUNT_PLAYERS);
 
 				count = (Long)query.uniqueResult();
 
@@ -1100,21 +1106,21 @@ public class GamesPersistenceImpl
 
 	@Override
 	protected String getPKDBName() {
-		return "gamesId";
+		return "playersId";
 	}
 
 	@Override
 	protected String getSelectSQL() {
-		return _SQL_SELECT_GAMES;
+		return _SQL_SELECT_PLAYERS;
 	}
 
 	@Override
 	protected Map<String, Integer> getTableColumnsMap() {
-		return GamesModelImpl.TABLE_COLUMNS_MAP;
+		return PlayersModelImpl.TABLE_COLUMNS_MAP;
 	}
 
 	/**
-	 * Initializes the games persistence.
+	 * Initializes the players persistence.
 	 */
 	@Activate
 	public void activate() {
@@ -1151,14 +1157,14 @@ public class GamesPersistenceImpl
 			new String[] {String.class.getName()}, new String[] {"uuid_"},
 			false);
 
-		GamesUtil.setPersistence(this);
+		PlayersUtil.setPersistence(this);
 	}
 
 	@Deactivate
 	public void deactivate() {
-		GamesUtil.setPersistence(null);
+		PlayersUtil.setPersistence(null);
 
-		entityCache.removeCache(GamesImpl.class.getName());
+		entityCache.removeCache(PlayersImpl.class.getName());
 	}
 
 	@Override
@@ -1193,28 +1199,28 @@ public class GamesPersistenceImpl
 	@Reference
 	protected FinderCache finderCache;
 
-	private static final String _SQL_SELECT_GAMES =
-		"SELECT games FROM Games games";
+	private static final String _SQL_SELECT_PLAYERS =
+		"SELECT players FROM Players players";
 
-	private static final String _SQL_SELECT_GAMES_WHERE =
-		"SELECT games FROM Games games WHERE ";
+	private static final String _SQL_SELECT_PLAYERS_WHERE =
+		"SELECT players FROM Players players WHERE ";
 
-	private static final String _SQL_COUNT_GAMES =
-		"SELECT COUNT(games) FROM Games games";
+	private static final String _SQL_COUNT_PLAYERS =
+		"SELECT COUNT(players) FROM Players players";
 
-	private static final String _SQL_COUNT_GAMES_WHERE =
-		"SELECT COUNT(games) FROM Games games WHERE ";
+	private static final String _SQL_COUNT_PLAYERS_WHERE =
+		"SELECT COUNT(players) FROM Players players WHERE ";
 
-	private static final String _ORDER_BY_ENTITY_ALIAS = "games.";
+	private static final String _ORDER_BY_ENTITY_ALIAS = "players.";
 
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY =
-		"No Games exists with the primary key ";
+		"No Players exists with the primary key ";
 
 	private static final String _NO_SUCH_ENTITY_WITH_KEY =
-		"No Games exists with the key {";
+		"No Players exists with the key {";
 
 	private static final Log _log = LogFactoryUtil.getLog(
-		GamesPersistenceImpl.class);
+		PlayersPersistenceImpl.class);
 
 	private static final Set<String> _badColumnNames = SetUtil.fromArray(
 		new String[] {"uuid"});

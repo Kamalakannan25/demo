@@ -7,11 +7,9 @@ package com.demo.crud.service;
 
 import com.demo.crud.model.Games;
 
-import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.petra.sql.dsl.query.DSLQuery;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
-import com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -193,22 +191,8 @@ public interface GamesLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Games fetchGames(long gamesId);
 
-	/**
-	 * Returns the games matching the UUID and group.
-	 *
-	 * @param uuid the games's UUID
-	 * @param groupId the primary key of the group
-	 * @return the matching games, or <code>null</code> if a matching games could not be found
-	 */
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Games fetchGamesByUuidAndGroupId(String uuid, long groupId);
-
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
-		PortletDataContext portletDataContext);
 
 	/**
 	 * Returns the games with the primary key.
@@ -219,18 +203,6 @@ public interface GamesLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Games getGames(long gamesId) throws PortalException;
-
-	/**
-	 * Returns the games matching the UUID and group.
-	 *
-	 * @param uuid the games's UUID
-	 * @param groupId the primary key of the group
-	 * @return the matching games
-	 * @throws PortalException if a matching games could not be found
-	 */
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Games getGamesByUuidAndGroupId(String uuid, long groupId)
-		throws PortalException;
 
 	/**
 	 * Returns a range of all the gameses.
@@ -245,32 +217,6 @@ public interface GamesLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Games> getGameses(int start, int end);
-
-	/**
-	 * Returns all the gameses matching the UUID and company.
-	 *
-	 * @param uuid the UUID of the gameses
-	 * @param companyId the primary key of the company
-	 * @return the matching gameses, or an empty list if no matches were found
-	 */
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Games> getGamesesByUuidAndCompanyId(
-		String uuid, long companyId);
-
-	/**
-	 * Returns a range of gameses matching the UUID and company.
-	 *
-	 * @param uuid the UUID of the gameses
-	 * @param companyId the primary key of the company
-	 * @param start the lower bound of the range of gameses
-	 * @param end the upper bound of the range of gameses (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the range of matching gameses, or an empty list if no matches were found
-	 */
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Games> getGamesesByUuidAndCompanyId(
-		String uuid, long companyId, int start, int end,
-		OrderByComparator<Games> orderByComparator);
 
 	/**
 	 * Returns the number of gameses.

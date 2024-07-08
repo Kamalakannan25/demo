@@ -6,4 +6,11 @@
          SELECT * FROM demo.sports_sports p where p.sportsName = ?
 ]]>
    </sql>
+   
+   <sql id="getSportsAndPlayersName"> 
+      <![CDATA[ 
+        SELECT * FROM dxpsample.sports_sports s INNER JOIN dxpsample.sports_players p 
+ON s.sportsId = p.sportsId WHERE p.playersName = ?
+]]>
+   </sql>
 </custom-sql>

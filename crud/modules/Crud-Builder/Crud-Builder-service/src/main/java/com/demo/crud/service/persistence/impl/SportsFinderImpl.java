@@ -8,7 +8,6 @@ import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.SQLQuery;
 import com.liferay.portal.kernel.dao.orm.Session;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -45,4 +44,5 @@ List<Sports> sportsList = Collections.EMPTY_LIST;
 		return sportsList;
 
 	}
+	
 }

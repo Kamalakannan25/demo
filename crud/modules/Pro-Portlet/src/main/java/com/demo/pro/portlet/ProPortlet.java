@@ -1,6 +1,9 @@
 package com.demo.pro.portlet;
 
+import com.demo.crud.model.Players;
 import com.demo.crud.model.Sports;
+import com.demo.crud.service.PlayersLocalService;
+import com.demo.crud.service.PlayersLocalServiceUtil;
 import com.demo.crud.service.SportsLocalService;
 import com.demo.crud.service.SportsLocalServiceUtil;
 import com.demo.pro.constants.ProPortletKeys;
@@ -48,6 +51,9 @@ public class ProPortlet extends MVCPortlet {
 	
 	@Reference
 	private SportsLocalService sportsLocalService;
+	
+	@Reference
+	private PlayersLocalService playersLocalService;
 
 	@Override
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
@@ -61,6 +67,13 @@ public class ProPortlet extends MVCPortlet {
 		//Custom SQL Query
 		String sportNames = sportsLocalService.getSportsTabByName("football").get(0).getDescription();
 		System.out.println("Custom SQL Query  :  " + sportNames);
+		
+		int playesAge = playersLocalService.getSportsAndPlayersNames("ronaldo").get(0).getPlayersAge();
+		System.out.println("Custom SQL Query Player Age  :  " + playesAge);
+		
+		List<Players> playesAge1 = playersLocalService.getPlayerses(-1, -1);
+		System.out.println("Custom SQL Query Player Table List  :  " + playesAge1);
+
 		
 		//Service Wrapper
 		System.out.println("User Local Count  :  "+ UserLocalServiceUtil.getUsersCount());
