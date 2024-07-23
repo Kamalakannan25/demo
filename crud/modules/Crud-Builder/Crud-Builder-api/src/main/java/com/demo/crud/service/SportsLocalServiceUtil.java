@@ -245,6 +245,10 @@ public class SportsLocalServiceUtil {
 		return getService().getSports(sportsId);
 	}
 
+	public static List<Sports> getSportsAllDetails(String sportsName) {
+		return getService().getSportsAllDetails(sportsName);
+	}
+
 	/**
 	 * Returns a range of all the sportses.
 	 *

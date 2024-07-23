@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.search.IndexerRegistryUtil"%>
+<%@page import="com.liferay.portal.kernel.search.Indexer"%>
 <%@page import="com.demo.crud.model.Sports"%>
 <%@page import="java.util.List"%>
 <%@page import="com.demo.crud.service.SportsLocalServiceUtil"%>
@@ -13,12 +15,22 @@
     </a>
 </div>
 
+<portlet:renderURL var="customSQLPageRenderURL">
+    <portlet:param name="mvcPath" value="/customSQLPage.jsp"/>
+</portlet:renderURL>
+
+<div class="mb-5">
+    <a href="<%= customSQLPageRenderURL %>" class="btn  btn-primary btn-default">
+        <i class="glyphicon glyphicon-plus"></i> Custom SQL
+    </a>
+</div>
+
 
 <%
 List<Sports> sportsList = (List<Sports>) request.getAttribute("sportsList");
 if (sportsList != null) {
     for (Sports sports : sportsList) {
-        out.println(sports.getSportsId() + "<br/>");
+       
     }
 } else {
     out.println("No sports found.");
@@ -31,4 +43,7 @@ System.out.println("Sports Name : "+ spoName);
 %>
 
 <%=spoName%>
+
+
+
 

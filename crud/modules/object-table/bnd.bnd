@@ -1,0 +1,9 @@
+Bundle-Name: object-table
+Bundle-SymbolicName: com.object
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.object.constants,\
+	com.object.constant,\
+	com.object.util,\
+	com.object.portlet
+Import-Package: *;resolution:=optional

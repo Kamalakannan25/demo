@@ -13,4 +13,14 @@
 ON s.sportsId = p.sportsId WHERE p.playersName = ?
 ]]>
    </sql>
+   
+   <sql id="getSportsAllDetails"> 
+      <![CDATA[ 
+        SELECT s.sportsId, s.sportsName, p.playersName, p.playersAge, g.gameRules, g.gameMembers
+		FROM dxpsample.sports_sports s
+		INNER JOIN dxpsample.sports_players p ON s.sportsId = p.sportsId
+		INNER JOIN dxpsample.sports_games g ON p.playersId = g.playersId
+		WHERE s.sportsName = ?
+]]>
+   </sql>
 </custom-sql>

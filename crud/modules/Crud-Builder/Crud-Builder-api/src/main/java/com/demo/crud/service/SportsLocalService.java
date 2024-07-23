@@ -224,6 +224,9 @@ public interface SportsLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Sports getSports(long sportsId) throws PortalException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Sports> getSportsAllDetails(String sportsName);
+
 	/**
 	 * Returns a range of all the sportses.
 	 *

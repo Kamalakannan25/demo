@@ -17,4 +17,7 @@ public interface SportsFinder {
 	public java.util.List<com.demo.crud.model.Sports> getSportsTabByName(
 		String sportsName);
 
+	public java.util.List<com.demo.crud.model.Sports> getSportsDetails(
+		String sportsName);
+
 }

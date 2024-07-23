@@ -273,6 +273,13 @@ public class SportsLocalServiceWrapper
 		return _sportsLocalService.getSports(sportsId);
 	}
 
+	@Override
+	public java.util.List<com.demo.crud.model.Sports> getSportsAllDetails(
+		String sportsName) {
+
+		return _sportsLocalService.getSportsAllDetails(sportsName);
+	}
+
 	/**
 	 * Returns a range of all the sportses.
 	 *

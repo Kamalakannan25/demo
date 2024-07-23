@@ -1,7 +1,9 @@
 package com.demo.pro.portlet;
 
+import com.demo.crud.model.Games;
 import com.demo.crud.model.Players;
 import com.demo.crud.model.Sports;
+import com.demo.crud.service.GamesLocalService;
 import com.demo.crud.service.PlayersLocalService;
 import com.demo.crud.service.PlayersLocalServiceUtil;
 import com.demo.crud.service.SportsLocalService;
@@ -20,6 +22,7 @@ import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.portlet.Portlet;
 import javax.portlet.PortletException;
@@ -55,6 +58,43 @@ public class ProPortlet extends MVCPortlet {
 	@Reference
 	private PlayersLocalService playersLocalService;
 
+	@Reference
+	private GamesLocalService gamesLocalService;
+	
+	@Override
+	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
+			throws IOException, PortletException {
+
+		String sportsName = renderRequest.getParameter("sportsName");
+		
+		List<Sports> sportsList = sportsLocalService.getSportses(-1, -1);
+		System.out.println("sportsList......" + sportsList);
+	    List<Players> playersList = playersLocalService.getPlayerses(-1, -1);
+	    System.out.println("playersList......" + playersList);
+	    List<Games> gamesList = gamesLocalService.getGameses(-1, -1);
+	    System.out.println("gamesList......" + gamesList);
+
+	    renderRequest.setAttribute("sportsList", sportsList);
+	    renderRequest.setAttribute("playersList", playersList);
+	    renderRequest.setAttribute("gamesList", gamesList);
+
+	    super.render(renderRequest, renderResponse);
+	}
+		
+		// Custom SQL 3 Table View
+//		String sportsName = renderRequest.getParameter("sportsName");
+//		List<Sports> sportsList1 = sportsLocalService.getSportses(-1, -1);
+//		System.out.println("sportsList1111111111111" + sportsList1);
+//
+//		if (sportsName != null) {
+//			sportsList1 = sportsLocalService.getSportsAllDetails(sportsName);
+//		}
+//		System.out.println("sportsList22222222222222" + sportsList1);
+//		renderRequest.setAttribute("sportsList1", sportsList1);
+//		super.render(renderRequest, renderResponse);
+//	}
+	
+	
 	@Override
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws IOException, PortletException {
@@ -71,10 +111,6 @@ public class ProPortlet extends MVCPortlet {
 		int playesAge = playersLocalService.getSportsAndPlayersNames("ronaldo").get(0).getPlayersAge();
 		System.out.println("Custom SQL Query Player Age  :  " + playesAge);
 		
-		List<Players> playesAge1 = playersLocalService.getPlayerses(-1, -1);
-		System.out.println("Custom SQL Query Player Table List  :  " + playesAge1);
-
-		
 		//Service Wrapper
 		System.out.println("User Local Count  :  "+ UserLocalServiceUtil.getUsersCount());
 		
@@ -86,7 +122,9 @@ public class ProPortlet extends MVCPortlet {
 		spoList.add(criterion);
 		
 		List<Sports> sportsList = SportsLocalServiceUtil.dynamicQuery(spoList);
+		
 		renderRequest.setAttribute("sportsList", sportsList);
+		
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

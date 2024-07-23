@@ -40,4 +40,8 @@ public class SportsLocalServiceImpl extends SportsLocalServiceBaseImpl {
 		return sportsFinder.getSportsTabByName(sportsName);
 	}
 
+	public List<Sports> getSportsAllDetails(String sportsName) {
+		return sportsFinder.getSportsDetails(sportsName);
+		
+	}
 }
