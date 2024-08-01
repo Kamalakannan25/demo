@@ -19,9 +19,19 @@ $(document).ready(function() {
 String jsonData = (String) request.getAttribute("data");
 JSONObject data = new JSONObject(jsonData);
 JSONArray jsonArray = data.getJSONArray("items");
-System.out.println("data...." + data);
 
 %> 
+
+
+<portlet:renderURL var="addFileRenderURL">
+    <portlet:param name="mvcPath" value="/addFiles.jsp"/>
+</portlet:renderURL>
+ 
+<div class="mb-5">
+    <a href="<%= addFileRenderURL %>" class="btn  btn-primary btn-default">
+        <i class="glyphicon glyphicon-plus"></i> Add File
+    </a>
+</div>
 
 <table id="moduleTable" class="display">
     <thead>
