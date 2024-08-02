@@ -1,0 +1,10 @@
+Bundle-Name: excelRead-api
+Bundle-SymbolicName: com.excel.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.excel.exception,\
+	com.excel.model,\
+	com.excel.service,\
+	com.excel.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../excelRead-service/service.xml

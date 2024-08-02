@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:excelRead:excelRead-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../excelRead-api/src/main/java"
+}
+
+group = "com.excel"
