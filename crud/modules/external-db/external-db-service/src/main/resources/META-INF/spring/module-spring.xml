@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="com.external.db.service.impl.EmpLocalServiceImpl" id="com.external.db.service.EmpLocalService" />
+	<bean class="com.external.db.service.persistence.impl.EmpModelArgumentsResolver" id="com.external.db.service.persistence.impl.EmpModelArgumentsResolver" />
+	<bean class="com.external.db.service.persistence.impl.EmpPersistenceImpl" id="com.external.db.service.persistence.EmpPersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.liferay.portal.dao.jdbc.spring.DataSourceFactoryBean" id="liferayDataSourceFactory">
+		<property name="propertyPrefix" value="jdbc.ext." />
+	</bean>
+	<bean class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy" id="liferayDataSource">
+		<property name="targetDataSource" ref="liferayDataSourceFactory" />
+	</bean>
+	<alias name="liferayDataSource" alias="extDataSource" />
+</beans>

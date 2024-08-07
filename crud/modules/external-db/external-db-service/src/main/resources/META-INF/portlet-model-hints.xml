@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.external.db.model.Emp">
+		<field name="uuid" type="String" />
+		<field name="eId" type="long" />
+		<field name="eName" type="String" />
+	</model>
+</model-hints>

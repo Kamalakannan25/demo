@@ -1,6 +1,5 @@
 package com.excel.port.portlet;
 
-import com.excel.model.Excel;
 import com.excel.port.constants.ExcelPortletKeys;
 import com.excel.service.ExcelLocalServiceUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;

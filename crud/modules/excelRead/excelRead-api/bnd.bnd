@@ -8,3 +8,4 @@ Export-Package:\
 	com.excel.service.persistence
 -check: EXPORTS
 -includeresource: META-INF/service.xml=../excelRead-service/service.xml
+Import-Package: org.*;resolution:=dynamic, *

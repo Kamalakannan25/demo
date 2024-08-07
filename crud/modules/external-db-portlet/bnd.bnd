@@ -1,0 +1,4 @@
+Bundle-Name: external-db-portlet
+Bundle-SymbolicName: com.ext
+Bundle-Version: 1.0.0
+Export-Package: com.ext.constants

@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:external-db-liferay:external-db-liferay-api")
+	implementation group: 'org.apache.sling', name: 'org.apache.sling.datasource', version: '1.0.0'
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../external-db-liferay-api/src/main/java"
+}
+
+group = "com.exter"

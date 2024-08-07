@@ -2,3 +2,4 @@ Bundle-Name: excel-portlet
 Bundle-SymbolicName: com.excel.port
 Bundle-Version: 1.0.0
 Export-Package: com.excel.port.constants
+Import-Package: org.*;resolution:=dynamic, *

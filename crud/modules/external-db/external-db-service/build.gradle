@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:external-db:external-db-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../external-db-api/src/main/java"
+}
+
+group = "com.external.db"

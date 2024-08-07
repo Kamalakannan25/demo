@@ -1,0 +1,9 @@
+Bundle-Name: external-db-liferay-service
+Bundle-SymbolicName: com.exter.service
+Bundle-Version: 1.0.0
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+-dsannotations-options: inherit
+Export-Package: com.liferay.external.data.source.test.internal
+Provide-Capability: \
+    osgi.service;effective:=active;objectClass=com.liferay.portal.kernel.dao.jdbc.DataSourceProvider

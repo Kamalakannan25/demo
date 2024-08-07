@@ -1,0 +1,10 @@
+Bundle-Name: external-db-liferay-api
+Bundle-SymbolicName: com.exter.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.exter.exception,\
+	com.exter.model,\
+	com.exter.service,\
+	com.exter.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../external-db-liferay-service/service.xml

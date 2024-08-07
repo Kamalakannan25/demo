@@ -1,0 +1,10 @@
+Bundle-Name: external-db-api
+Bundle-SymbolicName: com.external.db.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.external.db.exception,\
+	com.external.db.model,\
+	com.external.db.service,\
+	com.external.db.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../external-db-service/service.xml

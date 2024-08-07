@@ -7,11 +7,9 @@
 	<entity local-service="true" name="Excel" remote-service="true" uuid="true">
 
 		<!-- PK fields -->
-
 		<column name="excelId" primary="true" type="long" />
 
 		<!-- Other fields -->
-
 		<column name="name" type="String" />
 		<column name="address" type="String" />
 		<column name="phoneNumber" type="long" />
@@ -19,6 +17,6 @@
 		<finder name="PhoneNumber" return-type="Collection">
     		<finder-column name="phoneNumber" />
 		</finder>
-		
 	</entity>
+	
 </service-builder>
