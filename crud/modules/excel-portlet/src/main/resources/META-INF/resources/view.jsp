@@ -10,7 +10,7 @@ if (duplicateEntries != null && !duplicateEntries.isEmpty()) {
 
 %>
 
-<div class="alert alert-warning">
+<div class="alert alert-warning"> 
         <strong>Warning!</strong> The following entries were not added due to duplicate phone numbers:
         <ul>
             <% for (String entry : duplicateEntries) { %>
